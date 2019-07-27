@@ -48,7 +48,7 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_SHA1 .
+            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$TAG .
  
   push:
     machine:
@@ -61,9 +61,10 @@ jobs:
           name: Push image
           command: |
             echo "Push image!!!"
-            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_SHA1 .
+            export TAG="dev-$(date '+%Y%m%d')"
+            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$TAG .
             echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
-            docker push $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_SHA1	
+            docker push $DOCKERHUB_USERNAME/rsvpapp:$TAG	
 
 workflows:
   version: 2
