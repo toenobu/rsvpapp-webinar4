@@ -61,7 +61,7 @@ jobs:
           name: Push image
           command: |
             echo "Push image!!!"
-            export TAG="dev-$(date '+%Y%m%dH%M%S')"
+            export TAG="dev-$(date '+%Y%m%d%H%M%S')"
             docker build -t $DOCKERHUB_USERNAME/rsvpapp:$TAG .
             echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
             docker push $DOCKERHUB_USERNAME/rsvpapp:$TAG	
