@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rsvp-app
-        image: toenobu/rsvpapp:dev-20190727134129
+        image: toenobu/rsvpapp:dev-20190727140409
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
