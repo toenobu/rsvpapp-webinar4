@@ -48,7 +48,7 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$TAG .
+            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_SHA1 .
  
   push:
     machine:
