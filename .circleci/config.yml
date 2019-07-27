@@ -21,6 +21,8 @@ jobs:
             sudo dpkg --configure -a
             sudo apt-get install python3.5
             sleep 5
+            python -m pip install --upgrade pip
+            sleep 5
             python -m pip install -r requirements.txt
         
       # run tests!
